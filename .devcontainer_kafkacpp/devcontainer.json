@@ -1,0 +1,30 @@
+{
+  "name": "kafkacpp",
+  "build": {
+    "dockerfile": "./../Dockerfile",
+    "context": "./.."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools-extension-pack",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "appPort": [
+    "9092:9092"
+  ],
+  "remoteUser": "root",
+  "postCreateCommand": [
+    "cmake --version",
+    "g++ --version",
+    "vcpkg --version"
+  ],
+  "runArgs": [
+    "--init"
+  ],
+  "workspaceFolder": "/app",
+  "workspaceMount": "source=.,target=/app,type=bind"
+}
