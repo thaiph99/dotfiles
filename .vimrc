@@ -82,3 +82,8 @@ set incsearch
 set ignorecase
 set smartcase
 nnoremap <silent> <Space> :nohlsearch<CR>
+
+" ===[ Remove ESC Delay ]=========================================
+set timeoutlen=300   " Time to wait for mapped sequence (ms)
+set ttimeout         " Enable timeout for key codes
+set ttimeoutlen=50   " Time to wait for key code sequence (shorter)
