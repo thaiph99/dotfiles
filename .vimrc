@@ -1,59 +1,84 @@
-" ===[ Core Settings ]==========================================
-set nocompatible          " Disable vi compatibility
-filetype plugin indent on " Filetype detection
-syntax enable            " Syntax highlighting
+" ===[ Core Settings ]=========================================
+set nocompatible
+filetype plugin indent on
+syntax enable
+set encoding=utf-8
 
-" ===[ Silence All Annoyances ]=================================
-set noerrorbells          " No audio bells
-set novisualbell          " No screen flashing
-set t_vb=                 " Disable terminal visual bell
-set belloff=all           " Silence ALL bells
+" ===[ One Dark Pro Theme ]====================================
+set termguicolors
+set background=dark
 
-" ===[ Clean Interface ]========================================
-set number                " Show line numbers
-set norelativenumber      " No relative numbers (remove if you want them)
-set termguicolors         " True color support
-colorscheme slate         " Built-in dark theme
+" Base Colors
+highlight Normal       guibg=#282c34 guifg=#d7dae0 ctermbg=235 ctermfg=253
+highlight CursorLine   guibg=#2c313a ctermbg=236   gui=NONE
+highlight LineNr       guibg=#21252b guifg=#5c6370 ctermfg=242
+highlight CursorLineNr guifg=#d19a66 ctermfg=173   gui=bold
 
-" ===[ Text Editing ]===========================================
-set tabstop=4             " Visual spaces per tab
-set shiftwidth=4          " Indent size
-set expandtab             " Use spaces not tabs
-set smartindent           " Smart autoindenting
-set backspace=indent,eol,start " Normal backspace
+" Enhanced Syntax
+highlight Comment      guifg=#5c6370 
+highlight String       guifg=#98c379 gui=NONE      cterm=NONE
+highlight Function     guifg=#61afef gui=bold      cterm=bold
+highlight Identifier   guifg=#e06c75 gui=bold      cterm=bold
+highlight Keyword      guifg=#c678dd gui=bold      cterm=bold
+highlight Number       guifg=#d19a66 gui=bold      cterm=bold
+highlight Operator     guifg=#56b6c2 gui=bold      cterm=bold
+highlight Type         guifg=#e5c07b gui=bold      cterm=bold
+highlight Constant     guifg=#d19a66 gui=bold      cterm=bold
 
-" ===[ Search ]=================================================
-set incsearch             " Show matches while typing
-set hlsearch              " Highlight matches
-set ignorecase            " Case-insensitive search
-set smartcase             " Sensitive if uppercase used
+" Interface Elements
+" highlight Visual       guibg=#4b5263 gui=underline cterm=underline
+highlight Visual       guibg=#4b5263 
+highlight Search       guibg=#e5c07b guifg=#282c34 gui=bold  cterm=bold
+highlight IncSearch    guibg=#c678dd guifg=#282c34 gui=bold  cterm=bold
+highlight MatchParen   guibg=#3e4452 guifg=#e06c75 gui=bold  cterm=bold
+highlight StatusLine   guibg=#3e4452 guifg=#abb2bf gui=bold  cterm=bold
+highlight Pmenu        guibg=#3e4452 guifg=#abb2bf ctermbg=239
 
-" ===[ Window Behavior ]========================================
-set scrolloff=5           " Keep context when scrolling
-set splitbelow            " New splits go below
-set splitright            " New splits go right
-set laststatus=2          " Always show status line
+" ===[ Silent Operation ]======================================
+set noerrorbells novisualbell t_vb=
+set belloff=all
+set mouse=a
 
-" ===[ Status Line ]============================================
-set statusline=
-set statusline+=%<%f      " Filename
-set statusline+=%h%m%r    " Flags
-set statusline+=%=        " Right-align
-set statusline+=%y        " Filetype
-set statusline+=\ %3l:%-2c " Line:Column
-set statusline+=\ %P      " Percentage
-
-" ===[ Key Mappings ]===========================================
-nnoremap <silent> <space> :nohlsearch<CR> " Clear highlights
-nnoremap j gj             " Move by display lines
-nnoremap k gk
+" ===[ Movement Guards ]=======================================
+nnoremap <silent> j :<C-u>execute line('.')+v:count1 > line('$') ? '' : 'normal! j'<CR>
+nnoremap <silent> k :<C-u>execute line('.')-v:count1 < 1 ? '' : 'normal! k'<CR>
 vnoremap j gj
 vnoremap k gk
 
-" ===[ File Handling ]==========================================
-set hidden                " Change buffers without saving
-set confirm               " Confirm unsaved changes
-set undofile              " Persistent undo
-set undodir=~/.vim/undo   " Undo file location
-set noswapfile            " No swap files
-set nobackup              " No backup files
+" ===[ Interface Configuration ]===============================
+set number
+set showcmd
+set laststatus=2
+set title
+set scrolloff=5
+
+" ===[ Status Line ]===========================================
+set statusline=
+set statusline+=%#StatusLine#\ %<%f\ %m%r%h%w
+set statusline+=%=
+set statusline+=%#StatusLineNC#\ %y\ 
+set statusline+=%#StatusLine#\ %3l:%-2c\ %P
+
+" ===[ Editing Behavior ]=====================================
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set backspace=indent,eol,start
+set listchars=tab:▸\ ,trail:·
+set list
+
+" ===[ File Handling ]========================================
+set hidden
+set confirm
+set undofile
+set undodir=~/.vim/undo
+set noswapfile
+set nobackup
+
+" ===[ Search ]===============================================
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+nnoremap <silent> <Space> :nohlsearch<CR>
