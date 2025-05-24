@@ -1,150 +1,59 @@
-" Don't try to be vi compatible
-set nocompatible
+" ===[ Core Settings ]==========================================
+set nocompatible          " Disable vi compatibility
+filetype plugin indent on " Filetype detection
+syntax enable            " Syntax highlighting
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
+" ===[ Silence All Annoyances ]=================================
+set noerrorbells          " No audio bells
+set novisualbell          " No screen flashing
+set t_vb=                 " Disable terminal visual bell
+set belloff=all           " Silence ALL bells
 
-" TODO: Load plugins here (pathogen or vundle)
+" ===[ Clean Interface ]========================================
+set number                " Show line numbers
+set norelativenumber      " No relative numbers (remove if you want them)
+set termguicolors         " True color support
+colorscheme slate         " Built-in dark theme
 
-" Turn on syntax highlighting
-syntax on
+" ===[ Text Editing ]===========================================
+set tabstop=4             " Visual spaces per tab
+set shiftwidth=4          " Indent size
+set expandtab             " Use spaces not tabs
+set smartindent           " Smart autoindenting
+set backspace=indent,eol,start " Normal backspace
 
-" For plugins to load correctly
-filetype plugin indent on
+" ===[ Search ]=================================================
+set incsearch             " Show matches while typing
+set hlsearch              " Highlight matches
+set ignorecase            " Case-insensitive search
+set smartcase             " Sensitive if uppercase used
 
-" TODO: Pick a leader key
-" let mapleader = ","
+" ===[ Window Behavior ]========================================
+set scrolloff=5           " Keep context when scrolling
+set splitbelow            " New splits go below
+set splitright            " New splits go right
+set laststatus=2          " Always show status line
 
-" Security
-set modelines=0
+" ===[ Status Line ]============================================
+set statusline=
+set statusline+=%<%f      " Filename
+set statusline+=%h%m%r    " Flags
+set statusline+=%=        " Right-align
+set statusline+=%y        " Filetype
+set statusline+=\ %3l:%-2c " Line:Column
+set statusline+=\ %P      " Percentage
 
-" Show line numbers
-set number
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping (grr)
-set visualbell
-
-" Encoding
-set encoding=utf-8
-
-" Whitespace
-set wrap
-set textwidth=79
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set noshiftround
-
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
-
-" Move up/down editor lines
-nnoremap j gj
+" ===[ Key Mappings ]===========================================
+nnoremap <silent> <space> :nohlsearch<CR> " Clear highlights
+nnoremap j gj             " Move by display lines
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
-" Allow hidden buffers
-set hidden
-
-" Rendering
-set ttyfast
-
-" Status bar
-set laststatus=2
-
-" Last line
-set showmode
-set showcmd
-
-" Searching
-nnoremap / /\v
-vnoremap / /\v
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set showmatch
-map <leader><space> :let @/=''<cr> " clear search
-
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
-
-" Textmate holdouts
-
-" Formatting
-map <leader>q gqip
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
-
-" Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
-" colorscheme atomdark
-" colorscheme monokai
-" colorscheme onedark
-
-if has('termguicolors')
-    " Turns on true terminal colors
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-    " Turns on 24-bit RGB color support
-    set termguicolors
-
-    " Defines how many colors should be used. (maximum: 256, minimum: 0)
-    set t_Co=256
-endif
-
-set background=dark
-" colorscheme onedark
-
-" Use the PowerLine plugin. Change Python directory if needed.
-set rtp+=$HOME/.local/lib/python3.10/site-packages/powerline/bindings/vim/
-
-" Vundle
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'preservim/nerdtree'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" git repos on your local machine (i.e. when working on your own plugin)
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" ===[ File Handling ]==========================================
+set hidden                " Change buffers without saving
+set confirm               " Confirm unsaved changes
+set undofile              " Persistent undo
+set undodir=~/.vim/undo   " Undo file location
+set noswapfile            " No swap files
+set nobackup              " No backup files
