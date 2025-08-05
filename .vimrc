@@ -3,6 +3,7 @@ set nocompatible
 filetype plugin indent on
 syntax enable
 set encoding=utf-8
+inoremap jk <Esc>
 
 " ===[ One Dark Pro Theme ]====================================
 set termguicolors
@@ -72,7 +73,6 @@ set list
 set hidden
 set confirm
 set undofile
-set undodir=~/.vim/undo
 set noswapfile
 set nobackup
 
@@ -83,7 +83,7 @@ set ignorecase
 set smartcase
 nnoremap <silent> <Space> :nohlsearch<CR>
 
-" ===[ Remove ESC Delay ]=========================================
+" ===[ Fix ESC Delay ]=========================================
 set timeoutlen=300   " Time to wait for mapped sequence (ms)
 set ttimeout         " Enable timeout for key codes
 set ttimeoutlen=50   " Time to wait for key code sequence (shorter)
