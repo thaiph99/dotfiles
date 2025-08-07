@@ -9,7 +9,6 @@
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
 
 " Do incremental searching.
 set incsearch
@@ -40,20 +39,19 @@ let g:argtextobj_pairs="[:],(:),<:>"
 "" Map \r to the Reformat Code action
 map <leader>fm <Action>(ReformatCode)
 inoremap jk <Esc>
-nnoremap <TAB> :action PreviousTab<CR>
-nnoremap <s-TAB> :action NextTab<CR>
-set scrolloff=5          " Minimal number of lines above and below the cursor
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <TAB> :action NextTab<CR>
 set incsearch            " Show where search pattern typed so far matches
 set visualbell           " No bleep sound
 set which-key            " Enable Which-Key plugin
 set notimeout            " Do not hide Which-Key popup
 set hls                  " Enable search highlighting
 set ignorecase smartcase " Case-insensitive search
-set relativenumber       " Relative line numbers by default
 set peekaboo             " Show contents in the registers (IDEA plugin required)
 
 " Sensible comment toggle
 nnoremap <leader>/ :action CommentByLineComment<CR>
+vnoremap <leader>/ :action CommentByLineComment<CR><Esc>
 
 "" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)
