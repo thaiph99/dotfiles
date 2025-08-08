@@ -4,10 +4,12 @@ filetype plugin indent on
 syntax enable
 set encoding=utf-8
 inoremap jk <Esc>
+let mapleader = " "
 
 " ===[ One Dark Pro Theme ]====================================
 set termguicolors
 set background=dark
+set clipboard+=unnamed
 
 " Base Colors
 highlight Normal       guibg=#282c34 guifg=#d7dae0 ctermbg=235 ctermfg=253
@@ -39,12 +41,6 @@ highlight Pmenu        guibg=#3e4452 guifg=#abb2bf ctermbg=239
 set noerrorbells novisualbell t_vb=
 set belloff=all
 set mouse=a
-
-" ===[ Movement Guards ]=======================================
-nnoremap <silent> j :<C-u>execute line('.')+v:count1 > line('$') ? '' : 'normal! j'<CR>
-nnoremap <silent> k :<C-u>execute line('.')-v:count1 < 1 ? '' : 'normal! k'<CR>
-vnoremap j gj
-vnoremap k gk
 
 " ===[ Interface Configuration ]===============================
 set number
