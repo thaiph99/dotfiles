@@ -86,7 +86,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+setopt HIST_FIND_NO_DUPS
 set -o vi
+export EDITOR='vi'
+export VISUAL='vi'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -128,8 +131,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export SPARK_HOME=~/Install/spark
-export PATH=$PATH:$SPARK_HOME/bin
+# export SPARK_HOME=~/Install/spark
+# export PATH=$PATH:$SPARK_HOME/bin
 
 export PATH=$PATH:/usr/local/go/bin
 
@@ -138,3 +141,22 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source <(kubectl completion zsh)
+alias k="kubectl"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+M2_HOME='/opt/apache-maven-3.9.11'
+PATH="$M2_HOME/bin:$PATH"
+export PATH
+
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
+
+. "$HOME/.local/bin/env"
+
+alias nnvim='gnome-terminal --full-screen -- zsh -c "cd \"$PWD\"; nvim; exec zsh"'

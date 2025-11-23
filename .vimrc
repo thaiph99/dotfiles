@@ -69,6 +69,7 @@ set list
 set hidden
 set confirm
 set undofile
+set undodir=~/.vim/undo
 set noswapfile
 set nobackup
 
