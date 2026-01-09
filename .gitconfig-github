@@ -1,0 +1,7 @@
+[user]
+    name = <user-name>
+    email = <user-email>
+
+[url "https://<user-name>:<access-token>@github.com/"]
+    insteadOf = https://github.com/
+

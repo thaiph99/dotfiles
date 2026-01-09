@@ -1,0 +1,10 @@
+[user]
+	name = <user-name>
+	email = <user-email>
+[alias]
+	graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset' --abbrev-commit
+        review = "!sh -c 'git push origin HEAD:refs/for/master%r=$0'"
+
+[includeIf "gitdir:~/perspace/"]
+    path = ~/.gitconfig-github
