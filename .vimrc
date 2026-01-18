@@ -9,7 +9,8 @@ let mapleader = " "
 " ===[ One Dark Pro Theme ]====================================
 set termguicolors
 set background=dark
-set clipboard+=unnamed
+
+set clipboard=unnamedplus
 
 " Base Colors
 highlight Normal       guibg=#282c34 guifg=#d7dae0 ctermbg=235 ctermfg=253
