@@ -159,4 +159,5 @@ alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mo
 
 . "$HOME/.local/bin/env"
 
-alias nnvim='gnome-terminal --full-screen -- zsh -c "cd \"$PWD\"; nvim; exec zsh"'
+alias gnvim='gnome-terminal --full-screen -- zsh -c "cd \"$PWD\"; nvim; exec zsh"'
+alias nnvim='kitty --detach=yes --start-as=fullscreen -- zsh -c "cd \"$PWD\"; nvim; exec zsh"'
