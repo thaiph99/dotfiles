@@ -1,5 +1,6 @@
 " ===[ Core Settings ]=========================================
 set nocompatible
+set cursorline
 filetype plugin indent on
 syntax enable
 set encoding=utf-8
@@ -13,35 +14,15 @@ set background=dark
 set clipboard=unnamedplus
 
 " Base Colors
+highlight CursorLine   cterm=NONE gui=NONE guibg=#2c313a ctermbg=236
 highlight Normal       guibg=#282c34 guifg=#d7dae0 ctermbg=235 ctermfg=253
-highlight CursorLine   guibg=#2c313a ctermbg=236   gui=NONE
 highlight LineNr       guibg=#21252b guifg=#5c6370 ctermfg=242
-highlight CursorLineNr guifg=#d19a66 ctermfg=173   gui=bold
-
-" Enhanced Syntax
-highlight Comment      guifg=#5c6370 
-highlight String       guifg=#98c379 gui=NONE      cterm=NONE
-highlight Function     guifg=#61afef gui=bold      cterm=bold
-highlight Identifier   guifg=#e06c75 gui=bold      cterm=bold
-highlight Keyword      guifg=#c678dd gui=bold      cterm=bold
-highlight Number       guifg=#d19a66 gui=bold      cterm=bold
-highlight Operator     guifg=#56b6c2 gui=bold      cterm=bold
-highlight Type         guifg=#e5c07b gui=bold      cterm=bold
-highlight Constant     guifg=#d19a66 gui=bold      cterm=bold
-
-" Interface Elements
-" highlight Visual       guibg=#4b5263 gui=underline cterm=underline
-highlight Visual       guibg=#4b5263 
-highlight Search       guibg=#e5c07b guifg=#282c34 gui=bold  cterm=bold
-highlight IncSearch    guibg=#c678dd guifg=#282c34 gui=bold  cterm=bold
-highlight MatchParen   guibg=#3e4452 guifg=#e06c75 gui=bold  cterm=bold
-highlight StatusLine   guibg=#3e4452 guifg=#abb2bf gui=bold  cterm=bold
-highlight Pmenu        guibg=#3e4452 guifg=#abb2bf ctermbg=239
+highlight CursorLineNr guifg=#d19a66 ctermfg=173 gui=bold cterm=NONE
 
 " ===[ Silent Operation ]======================================
 set noerrorbells novisualbell t_vb=
 set belloff=all
-set mouse=a
+set mouse=""
 
 " ===[ Interface Configuration ]===============================
 set number
@@ -82,6 +63,6 @@ set smartcase
 nnoremap <silent> <Space> :nohlsearch<CR>
 
 " ===[ Fix ESC Delay ]=========================================
-set timeoutlen=300   " Time to wait for mapped sequence (ms)
+set timeoutlen=200   " Time to wait for mapped sequence (ms)
 set ttimeout         " Enable timeout for key codes
 set ttimeoutlen=50   " Time to wait for key code sequence (shorter)
