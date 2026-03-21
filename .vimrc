@@ -4,8 +4,6 @@ set cursorline
 filetype plugin indent on
 syntax enable
 set encoding=utf-8
-inoremap jk <Esc>
-let mapleader = " "
 
 " ===[ One Dark Pro Theme ]====================================
 set termguicolors
