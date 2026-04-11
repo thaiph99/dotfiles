@@ -1,0 +1,116 @@
+// Leader key = space
+[
+  // ── Insert mode ──────────────────────────────────────────────────────────
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore", // jk → escape insert mode
+      "ctrl-s": "workspace::Save"
+    }
+  },
+
+  // ── Normal + Visual (shared) ──────────────────────────────────────────────
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      // Window / pane navigation (ctrl + hjkl  AND  alt + hjkl)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "alt-h": "workspace::ActivatePaneLeft",
+      "alt-l": "workspace::ActivatePaneRight",
+      "alt-k": "workspace::ActivatePaneUp",
+      "alt-j": "workspace::ActivatePaneDown",
+
+      // <leader>/ → toggle comment (normal: gcc, visual: gc)
+      "space /": "editor::ToggleComments",
+
+      // File tree
+      "space e": "project_panel::ToggleFocus" // <leader>e
+    }
+  },
+
+  // ── Normal mode only ──────────────────────────────────────────────────────
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // Save
+      "ctrl-s": "workspace::Save",
+
+      // Redo  (alt-r → <C-r>)
+      "alt-r": "editor::Redo",
+
+      // Jump list  (alt-o → <C-o>  |  alt-p / ctrl-p → <C-i>)
+      "alt-o": "pane::GoBack",
+      "alt-p": "pane::GoForward",
+      "ctrl-p": "pane::GoForward",
+
+      // Buffer / tab navigation  (<tab> / <S-tab>)
+      "tab": "pane::ActivateNextItem",
+      "shift-tab": "pane::ActivatePreviousItem",
+
+      // Page scroll  (alt-d → <C-d>  |  alt-u → <C-u>)
+      "alt-d": "vim::ScrollDown",
+      "alt-u": "vim::ScrollUp",
+
+      // ── <leader> b/x  ── buffers ──────────────────────────────────────
+      "space b": "workspace::NewFile", // <leader>b  new buffer
+      "space x": "pane::CloseActiveItem", // <leader>x  close buffer
+
+      // ── <leader> f  ── file / search (Telescope equivalents) ─────────
+      "space f f": "file_finder::Toggle", // find files
+      "space f a": "file_finder::Toggle", // find all files
+      "space f w": "project_search::ToggleFocus", // live grep
+      "space f b": "tab_switcher::Toggle", // find buffers
+      "space f z": "buffer_search::Deploy", // fuzzy in buffer
+      "space f r": "file_finder::Toggle", // resume (reopen)
+      "space f m": "editor::Format", // format file
+
+      // ── <leader> g / c m  ── git ──────────────────────────────────────
+      "space g t": "git_panel::ToggleFocus", // git status
+      "space c m": "git_panel::ToggleFocus", // git commits (closest equivalent)
+
+      // ── g  ── LSP navigation ──────────────────────────────────────────
+      "g d": "editor::GoToDefinition", // gd
+      "g D": "editor::GoToTypeDefinition", // gD
+      "g r": "editor::FindAllReferences", // gr
+      "g i": "editor::GoToImplementation", // gi
+      "K": "editor::Hover", // K  hover docs
+
+      // ── <leader> d  ── diagnostics ────────────────────────────────────
+      "space d s": "diagnostics::Deploy", // diagnostic loclist
+
+      // ── <leader> c / r  ── code actions & rename ─────────────────────
+      "space c a": "editor::ToggleCodeActions", // code action
+      "space r n": "editor::Rename", // rename symbol
+
+      // ── <leader> l s  ── symbols / outline ───────────────────────────
+      "space l s": "outline::Toggle",
+
+      "alt-i": "terminal_panel::ToggleFocus" // float term toggle
+    }
+  },
+
+  // ── Visual mode only ─────────────────────────────────────────────────────
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      // <leader>fw in visual → open search panel (prefilled from selection)
+      "space f w": "project_search::ToggleFocus",
+      "space f f": "file_finder::Toggle",
+      "space f a": "file_finder::Toggle"
+    }
+  },
+
+  // ── Terminal panel ────────────────────────────────────────────────────────
+  {
+    "context": "Terminal",
+    "bindings": {
+      // alt-q → escape terminal (go back to last editor pane)
+      "alt-q": "workspace::ActivateNextPane",
+      // alt-i → toggle terminal panel
+      "alt-i": "terminal_panel::Toggle"
+    }
+  }
+]
