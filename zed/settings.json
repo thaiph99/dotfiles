@@ -8,14 +8,14 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "git_panel": {
-    "tree_view": true
+    "tree_view": true,
   },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini",
       "enable_thinking": false,
-      "effort": "high"
+      "effort": "high",
     },
     "flexible": true,
     "favorite_models": [],
@@ -99,5 +99,8 @@
   },
   "drag_and_drop_selection": {
     "enabled": false,
+  },
+  "edit_predictions": {
+    "provider": "copilot",
   },
 }

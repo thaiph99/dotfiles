@@ -5,8 +5,8 @@
     "context": "Editor && vim_mode == insert",
     "bindings": {
       "j k": "vim::NormalBefore", // jk → escape insert mode
-      "ctrl-s": "workspace::Save"
-    }
+      "ctrl-s": "workspace::Save",
+    },
   },
 
   // ── Normal + Visual (shared) ──────────────────────────────────────────────
@@ -27,8 +27,8 @@
       "space /": "editor::ToggleComments",
 
       // File tree
-      "space e": "project_panel::ToggleFocus" // <leader>e
-    }
+      "space e": "project_panel::ToggleFocus", // <leader>e
+    },
   },
 
   // ── Normal mode only ──────────────────────────────────────────────────────
@@ -88,8 +88,8 @@
       // ── <leader> l s  ── symbols / outline ───────────────────────────
       "space l s": "outline::Toggle",
 
-      "alt-i": "terminal_panel::ToggleFocus" // float term toggle
-    }
+      "alt-i": "terminal_panel::ToggleFocus", // float term toggle
+    },
   },
 
   // ── Visual mode only ─────────────────────────────────────────────────────
@@ -99,8 +99,8 @@
       // <leader>fw in visual → open search panel (prefilled from selection)
       "space f w": "project_search::ToggleFocus",
       "space f f": "file_finder::Toggle",
-      "space f a": "file_finder::Toggle"
-    }
+      "space f a": "file_finder::Toggle",
+    },
   },
 
   // ── Terminal panel ────────────────────────────────────────────────────────
@@ -110,7 +110,23 @@
       // alt-q → escape terminal (go back to last editor pane)
       "alt-q": "workspace::ActivateNextPane",
       // alt-i → toggle terminal panel
-      "alt-i": "terminal_panel::Toggle"
-    }
-  }
+      "alt-i": "terminal_panel::Toggle",
+    },
+  },
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "alt-l": "editor::AcceptEditPrediction",
+    },
+  },
+
+  // ── Autocomplete menu navigation ─────────────────────────────────────────
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious",
+      "enter": "editor::ConfirmCompletion",
+    },
+  },
 ]
