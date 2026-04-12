@@ -11,11 +11,15 @@
     "tree_view": true,
   },
   "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1",
+      "enable_thinking": false,
+    },
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini",
+      "model": "gpt-4.1",
       "enable_thinking": false,
-      "effort": "high",
     },
     "flexible": true,
     "favorite_models": [],
@@ -31,7 +35,7 @@
   },
   "project_panel": {
     "bold_folder_labels": true,
-    "default_width": 400,
+    "default_width": 300,
     "file_icons": true,
     "hide_root": true,
   },
@@ -49,6 +53,7 @@
   "gutter": {
     "min_line_number_digits": 0,
     "line_numbers": true,
+    // "folds": false,
   },
   "minimap": {
     "show": "never",
@@ -65,7 +70,7 @@
   },
   "semantic_tokens": "off",
   "vim_mode": true,
-  "ui_font_size": 18.0,
+  "ui_font_size": 17.0,
   "buffer_font_size": 16.0,
   "theme": {
     "mode": "system",
