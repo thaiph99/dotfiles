@@ -2,7 +2,7 @@
 set nocompatible
 set cursorline
 filetype plugin indent on
-syntax enable
+syntax off
 set encoding=utf-8
 
 " ===[ One Dark Pro Theme ]====================================
@@ -14,8 +14,9 @@ set clipboard=unnamedplus
 " Base Colors
 highlight CursorLine   cterm=NONE gui=NONE guibg=#2c313a ctermbg=236
 highlight Normal       guibg=#282c34 guifg=#d7dae0 ctermbg=235 ctermfg=253
-highlight LineNr       guibg=#21252b guifg=#5c6370 ctermfg=242
-highlight CursorLineNr guifg=#d19a66 ctermfg=173 gui=bold cterm=NONE
+highlight LineNr       guibg=#2c313a guifg=#5c6370 ctermfg=236
+highlight CursorLineNr guifg=#5c6370 ctermfg=173 gui=bold cterm=NONE
+highlight Search    guibg=#98e6c5 guifg=#282c34 ctermbg=121 ctermfg=235
 
 " ===[ Silent Operation ]======================================
 set noerrorbells novisualbell t_vb=
@@ -24,6 +25,7 @@ set mouse=""
 
 " ===[ Interface Configuration ]===============================
 set number
+set wildmenu
 set showcmd
 set laststatus=2
 set title
