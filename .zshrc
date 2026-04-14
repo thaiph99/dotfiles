@@ -47,15 +47,8 @@ conda() {
 
 # NVM (lazy-loaded)
 export NVM_DIR="$HOME/.nvm"
-_load_nvm() {
-    unset -f nvm node npm npx
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-}
-nvm()  { _load_nvm; nvm "$@"; }
-node() { _load_nvm; node "$@"; }
-npm()  { _load_nvm; npm "$@"; }
-npx()  { _load_nvm; npx "$@"; }
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Cached kubectl completion
 if command -v kubectl >/dev/null 2>&1; then
@@ -70,6 +63,7 @@ alias k="kubectl"
 # fzf command search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+unalias gnvim nnvim 2>/dev/null
 gnvim() {
     gnome-terminal --full-screen -- zsh -c "cd \"$PWD\"; nvim ${*:-.}; exec zsh"
 }
