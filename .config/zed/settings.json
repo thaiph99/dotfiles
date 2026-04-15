@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "search": {
+    "button": false
+  },
   "git_panel": {
     "tree_view": true,
   },
@@ -34,6 +37,7 @@
     "calt": false,
   },
   "project_panel": {
+    "button": false,
     "bold_folder_labels": true,
     "default_width": 300,
     "file_icons": true,
@@ -41,6 +45,7 @@
   },
   "agent_ui_font_size": 16.0,
   "terminal": {
+    "button": false,
     "default_height": 500.0,
     "font_weight": 500.0,
     "font_size": 16.0,
@@ -78,6 +83,7 @@
     "dark": "One Dark",
   },
   "diagnostics": {
+    "button": true,
     "inline": {
       "enabled": true,
     },
@@ -97,7 +103,9 @@
     "quick_actions": false,
   },
   "status_bar": {
-    "experimental.show": false,
+    "active_language_button": true,
+    "show_active_file": true,
+    "experimental.show": true,
   },
   "file_finder": {
     "modal_max_width": "large",

@@ -39,7 +39,7 @@
       "ctrl-s": "workspace::Save",
 
       // Redo  (alt-r → <C-r>)
-      "alt-r": "editor::Redo",
+      "ctrl-r": "editor::Redo",
 
       // Jump list  (alt-o → <C-o>  |  alt-p / ctrl-p → <C-i>)
       "alt-o": "pane::GoBack",
