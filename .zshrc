@@ -15,6 +15,16 @@ plugins=(
 
 source "$ZSH/oh-my-zsh.sh"
 
+autoload -Uz add-zsh-hook
+_bottom_margin() {
+  local n=5
+  (( LINES > n + 1 )) || return
+  printf '\e7\e[r\e8'
+  printf '\n%.0s' {1..$n}
+  printf '\e[%dA' $n
+}
+add-zsh-hook precmd _bottom_margin
+
 setopt HIST_FIND_NO_DUPS
 set -o vi
 
